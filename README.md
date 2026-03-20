@@ -176,7 +176,7 @@ MAIN_CLASS=Main
 PORT=8087
 
 # Default target
-all: build
+all: run
 
 # Compile Java code
 build:
