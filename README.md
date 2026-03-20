@@ -55,7 +55,8 @@ Compile → javac
 Run → java
 
 —---------------------------------------------------------------------------------------------------------------------------- 
-📦 Project: simple-java-make-app
+
+# 📦 Project: simple-java-make-app
 📁 Folder Structure
 simple-java-make-app/
  ├── src/
