@@ -1,70 +1,103 @@
-# simple-java-makefile-app
+# Simple Java makefile app
 
-👉 Makefile is NOT only for C/C++
-👉 It is a general-purpose build automation tool
+## 📘 About Makefile
 
-You can use it for:
+👉 **Makefile is NOT only for C/C++**
+👉 It is a **general-purpose build automation tool**
 
-Java ✅
+---
 
-Python ✅
+### ✅ You can use it for:
 
-Docker ✅
+* Java ✅
+* Python ✅
+* Docker ✅
+* Kubernetes ✅
+* Shell scripts ✅
+* Anything you can run in terminal ✅
 
-Kubernetes ✅
+---
 
-Shell scripts ✅
-
-Anything you can run in terminal ✅
-
-🧠 Why people think it's only for C/C++
+### 🧠 Why people think it's only for C/C++
 
 Because traditionally:
 
-make was heavily used with C/C++ compilers (gcc, g++)
-
-It handles compilation dependencies very well
+* `make` was heavily used with C/C++ compilers (`gcc`, `g++`)
+* It handles compilation dependencies very well
 
 So it became famous in that ecosystem.
 
-🔥 How it works (important concept)
+---
+
+### 🔥 How it works (important concept)
 
 Makefile doesn’t “know Java” or “know C”.
 
-👉 It just runs commands like this:
+👉 It just runs commands like:
 
+```bash
 javac Main.java
 java Main
+```
 
-Same as if you typed manually.
+Same as if you typed manually in the terminal.
 
-✅ Example (Your case)
+---
 
-In your Makefile:
+### ✅ Example (this project)
 
+From this project’s Makefile:
+
+```makefile
 build:
 	javac -d build src/Main.java
 
 run:
 	java -cp build Main
+```
+
+---
+
+### ⚙️ What’s happening here?
 
 👉 Make is simply automating:
 
-Compile → javac
+* Compile → `javac`
+* Run → `java`
 
-Run → java
+---
 
-—---------------------------------------------------------------------------------------------------------------------------- 
+### 💡 Key Takeaway
 
-# 📦 Project: simple-java-make-app
-📁 Folder Structure
+Makefile is a **task runner**, not a language-specific tool.
+
+It helps automate repetitive commands in a clean and reusable way.
+
+---
+
+# 📦 simple-java-make-app
+
+A minimal Java HTTP server application built using a **Makefile** (no Maven/Gradle).
+
+---
+
+## 📁 Folder Structure
+
+```
 simple-java-make-app/
- ├── src/
- │    └── Main.java
- ├── Makefile
- └── README.md
-☕ Java Source Code
-📄 File: src/Main.java
+├── src/
+│   └── Main.java
+├── Makefile
+└── README.md
+```
+
+---
+
+## ☕ Java Source Code
+
+### 📄 File: `src/Main.java`
+
+```java
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
@@ -127,8 +160,15 @@ public class Main {
         }
     }
 }
-⚙️ Makefile
-📄 File: Makefile
+```
+
+---
+
+## ⚙️ Makefile
+
+### 📄 File: `Makefile`
+
+```makefile
 # Variables
 SRC_DIR=src
 BUILD_DIR=build
@@ -151,37 +191,63 @@ run: build
 clean:
 	rm -rf $(BUILD_DIR)
 
-# Show access URL (optional helper)
+# Show access URL
 url:
 	@echo "http://$$(curl -s ifconfig.me):$(PORT)"
-📄 README.md (Optional but good practice)
-# Simple Java Makefile App
-
-## 🚀 Run the app
-
-```bash
-make run
-🌐 Access
-
-The app will print:
-
-You can access the application at: http://<PUBLIC_IP>:8087
-
-Or manually:
-
-make url
+```
 
 ---
 
-# 🚀 How to Use
+## 🚀 How to Use
 
 ### 1. Build & Run
+
 ```bash
 make run
-2. Clean
+```
+
+---
+
+### 2. Clean
+
+```bash
 make clean
-3. Get URL separately
+```
+
+---
+
+### 3. Get Public URL
+
+```bash
 make url
-🔥 Output in Terminal
+```
+
+---
+
+## 🌐 Access
+
+After running, you will see:
+
+```
 🚀 Application started!
-👉 You can access the application at: http://<your-public-ip>:8087
+👉 You can access the application at: http://<PUBLIC_IP>:8087
+```
+
+Or open manually:
+
+```
+http://<your-public-ip>:8087
+```
+
+---
+
+## ✅ Features
+
+* No frameworks (pure Java)
+* Uses built-in HTTP server
+* Makefile-based build
+* Dynamic public IP detection
+* Runs on port **8087**
+
+---
+
