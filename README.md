@@ -185,6 +185,8 @@ build:
 
 # Run application
 run: build
+	@echo "🚀 Starting application..."
+	@echo "👉 You can access the application at: http://$$(curl -s ifconfig.me):$(PORT)"
 	java -cp $(BUILD_DIR) $(MAIN_CLASS)
 
 # Clean build files
